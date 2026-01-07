@@ -8,11 +8,21 @@
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render('Welcome to SuperSimpleDev React Course');
+        const paragraph = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
+
+        const container = document.querySelector('.js-container');
+        const root = ReactDOM.createRoot(container);
+        root.render(paragraph);
+
+        setInterval(() => {
+            const paragraph = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
+            root.render(paragraph);
+        }, 1000);
+        
     </script>
   </body>
 </html>
