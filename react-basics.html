@@ -8,20 +8,38 @@
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
-    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-        const paragraph = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
 
-        const container = document.querySelector('.js-container');
-        const root = ReactDOM.createRoot(container);
-        root.render(paragraph);
+      function LoginForm() {
+        return (
+          <>
+            <div>
+              <input placeholder = "Email" />
+            </div>
+            <div>
+              <input placeholder = "password" type="password" />
+            </div>
+            <div>
+              <button>Login</button>
+              <button>Sign up</button>
+            </div>
+          </>
+        );
+      }
+      function App() {
+        return (
+        <>  
+          <p> Hello welcome to my website </p>
+          <LoginForm />
+        </>
+        );
+      }
 
-        setInterval(() => {
-            const paragraph = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
-            root.render(paragraph);
-        }, 1000);
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container);
+      root.render(<App/>);
         
     </script>
   </body>
