@@ -13,19 +13,20 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/cart-items?expand=product')
-      .then((response) => {
-        console.log('cart response:', response.data);
-        setCart(response.data)
-      });
+    const fetchAppData = async () => {
+      const response = axios.get('/api/cart-items?expand=product')
+      setCart(response.data)
+    }
+
+    fetchAppData();
   }, [])//[] dependency array to tell useEffect to run once
 
 
   return (
     <Routes>
-      <Route index element={<HomePage cart={cart}/>} />
-      <Route path="checkout" element={<CheckoutPage cart={cart}/>} />
-      <Route path="orders" element={<OrdersPage cart={cart}/>} />
+      <Route index element={<HomePage cart={cart} />} />
+      <Route path="checkout" element={<CheckoutPage cart={cart} />} />
+      <Route path="orders" element={<OrdersPage cart={cart} />} />
       <Route path="tracking" element={<TrackingPage />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
