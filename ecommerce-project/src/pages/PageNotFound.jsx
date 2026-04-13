@@ -1,10 +1,10 @@
 import { Header } from '../components/Header'
 import { Link } from 'react-router'
 
-export function PageNotFound() {
+export function PageNotFound({cart}) {
     return (
         <>
-            <Header />
+            <Header cart={cart}/>
 
             <main style={{ textAlign: 'center', marginTop: '4rem' }}>
                 <h1>404</h1>
